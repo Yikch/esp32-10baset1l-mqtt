@@ -1,0 +1,50 @@
+version: '2.4' # Versión ideal para docker-compose antiguo en sistemas embebidos
+
+services:
+  # Broker de Mensajería
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto_broker
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+
+  # Base de Datos
+  influxdb:
+    image: influxdb:2.7
+    container_name: influxdb_tsdb
+    ports:
+      - "8086:8086"
+    volumes:
+      - ./influxdb_data:/var/lib/influxdb2
+    restart: unless-stopped
+    # En la versión 2.4, los límites se ponen directamente aquí:
+    mem_limit: 800m
+    cpus: 0.5
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8086/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      # Hemos eliminado start_period porque no existe en esta versión
+
+  # Lógica de Control
+  nodered:
+    image: nodered/node-red:latest
+    container_name: node_red_edge
+    environment:
+      - TZ=Europe/Madrid
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./node_red_data:/data
+    depends_on:
+      influxdb:
+        condition: service_healthy # Espera a que InfluxDB responda al healthcheck
+      mosquitto:
+        condition: service_started
+    restart: always

@@ -1,0 +1,1189 @@
+[
+    {
+        "id": "96b92fe2e5bc89fa",
+        "type": "tab",
+        "label": "Flujo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "895e1182015251e8",
+        "type": "mqtt-broker",
+        "name": "local_mqtt_server",
+        "broker": "mosquitto_broker",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": "70",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ce94ed81d218709f",
+        "type": "mqtt-broker",
+        "name": "thingsboard",
+        "broker": "eu.thingsboard.cloud",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f49e7e85efe21404",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": 8086,
+        "protocol": "http",
+        "database": "database",
+        "name": "influxDB",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://influxdb_tsdb:8086",
+        "timeout": 10,
+        "rejectUnauthorized": false
+    },
+    {
+        "id": "1ddddfb4a0ad76a6",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "b58dda57aec12fbc",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "d72f5244044e1adf",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "1ddddfb4a0ad76a6",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "b58dda57aec12fbc",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": true,
+        "disabled": "false"
+    },
+    {
+        "id": "8805362c37d72b0e",
+        "type": "ui-page",
+        "name": "Page 2",
+        "ui": "1ddddfb4a0ad76a6",
+        "path": "/page2",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "b58dda57aec12fbc",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "ca7c2e2e53e750a5",
+        "type": "ui-link",
+        "name": "Link 1",
+        "ui": "1ddddfb4a0ad76a6",
+        "path": "/",
+        "icon": "home",
+        "order": 3,
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "4f19cf733bbdf287",
+        "type": "ui-group",
+        "name": "[Estado] Gas Sensor",
+        "page": "d72f5244044e1adf",
+        "width": 6,
+        "height": 1,
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "f4d95fc8a4ed4d83",
+        "type": "ui-page",
+        "name": "Page 3",
+        "ui": "1ddddfb4a0ad76a6",
+        "path": "/page3",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "b58dda57aec12fbc",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 4,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "47f37dd80357c9fd",
+        "type": "ui-group",
+        "name": "Gráficas de gas",
+        "page": "d72f5244044e1adf",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "fd45f722b4b1b15d",
+        "type": "ui-group",
+        "name": "Avisos",
+        "page": "d72f5244044e1adf",
+        "width": "12",
+        "height": 1,
+        "order": 1,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "b50696ff5614ec72",
+        "type": "mqtt in",
+        "z": "96b92fe2e5bc89fa",
+        "name": "",
+        "topic": "v1/spe/sensor/data",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "895e1182015251e8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 220,
+        "wires": [
+            [
+                "4b4a4695b21671f3",
+                "a09e9434ade35eed"
+            ]
+        ]
+    },
+    {
+        "id": "8f53300609bd44b8",
+        "type": "function",
+        "z": "96b92fe2e5bc89fa",
+        "name": "function 1",
+        "func": "// Reenvia todas las medidas como telemetria numerica (clave en minusculas).\nconst datos = msg.payload || {};\nconst out = {};\nfor (const k of Object.keys(datos)) {\n    const n = Number(datos[k]);\n    out[k.toLowerCase()] = Number.isNaN(n) ? datos[k] : n;\n}\nmsg.payload = out;        // p. ej. { o2: 20.9, o3: 5 } o { co_level: 400 }\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 160,
+        "wires": [
+            [
+                "608a8feef39c549b",
+                "fe17d44c8468e171",
+                "b3413b8ab745c472",
+                "afb9f432333a747c",
+                "b8ebf286be138d3f"
+            ]
+        ]
+    },
+    {
+        "id": "608a8feef39c549b",
+        "type": "mqtt out",
+        "z": "96b92fe2e5bc89fa",
+        "name": "",
+        "topic": "v1/devices/me/telemetry",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ce94ed81d218709f",
+        "x": 1010,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "4b4a4695b21671f3",
+        "type": "debug",
+        "z": "96b92fe2e5bc89fa",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "fe17d44c8468e171",
+        "type": "debug",
+        "z": "96b92fe2e5bc89fa",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "557416c7a45add17",
+        "type": "function",
+        "z": "96b92fe2e5bc89fa",
+        "name": "function 2",
+        "func": "// Convierte cada medida en un field numerico del measurement calidad_aire.\nconst datos = msg.payload || {};\nconst fields = {};\nfor (const k of Object.keys(datos)) {\n    fields[k.toLowerCase()] = Number(datos[k]);\n}\n\nmsg.measurement = \"calidad_aire\";\nmsg.payload = [\n    fields,                                   // FIELDS: uno por gas (o2, o3, co_level...)\n    { nodo: \"esp32_01\", interfaz: \"T1L\" }     // TAGS\n];\ndelete msg.topic;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 300,
+        "wires": [
+            [
+                "5c932dc7a3c0d6f2",
+                "9207c99544768d62"
+            ]
+        ]
+    },
+    {
+        "id": "5c932dc7a3c0d6f2",
+        "type": "influxdb out",
+        "z": "96b92fe2e5bc89fa",
+        "influxdb": "f49e7e85efe21404",
+        "name": "BBDD",
+        "measurement": "",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "UCM_TFM_SPE",
+        "bucket": "Mediciones_Sensor",
+        "x": 1010,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "9207c99544768d62",
+        "type": "debug",
+        "z": "96b92fe2e5bc89fa",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "16bbeed4e0dd88eb",
+        "type": "ui-chart",
+        "z": "96b92fe2e5bc89fa",
+        "d": true,
+        "group": "47f37dd80357c9fd",
+        "name": "CO (ppm)",
+        "label": "CO (ppm)",
+        "order": 1,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": "30",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "6",
+        "height": "8",
+        "className": "",
+        "interpolation": "linear",
+        "x": 1120,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "62eaf04d2c69a1e5",
+        "type": "mqtt in",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Sensor Status",
+        "topic": "v1/spe/sensor/status",
+        "qos": "1",
+        "datatype": "json",
+        "broker": "895e1182015251e8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "6653c2700e72f4fe",
+                "c4c763a08fe248a3",
+                "d7883c71c730b00e"
+            ]
+        ]
+    },
+    {
+        "id": "6653c2700e72f4fe",
+        "type": "function",
+        "z": "96b92fe2e5bc89fa",
+        "name": "system_status → InfluxDB",
+        "func": "// Entrada esperada:\n//   { node, status: \"ONLINE\"|\"OFFLINE\", reason?, sensor?: \"ok\"|\"fault\" }\n//\n// Cambios respecto a la version anterior:\n//   - Se lee payload.sensor (campo nuevo del firmware ESP32).\n//   - Se persiste como tag adicional 'sensor_health' en system_status.\n//   - Salida 2 propaga al consolidador de alarmas tambien cuando\n//     el nodo esta ONLINE pero sensor=fault (alarma de sensor averiado).\n\nconst ev = msg.payload || {};\nconst isOnline    = ev.status === \"ONLINE\";\nconst sensorOk    = ev.sensor !== \"fault\";   // ok si esta ausente o \"ok\"\nconst isAlarmable = !isOnline || !sensorOk;  // OFFLINE o sensor averiado\n\n// --- Salida 1: persistencia en InfluxDB (siempre) ---\nconst dbMsg = {\n    measurement: \"system_status\",\n    payload: [\n        { state_code: isOnline ? 1 : 0 },                  // FIELDS\n        {                                                  // TAGS\n            nodo:          ev.node || \"unknown\",\n            reason:        ev.reason || (isOnline ? \"ok\" : \"unknown\"),\n            sensor_health: ev.sensor || (isOnline ? \"ok\" : \"n/a\"),\n            source:        \"lwt\"\n        }\n    ]\n};\n\n// --- Salida 2: hacia consolidador si OFFLINE o si sensor=fault ---\nconst alarmMsg = !isAlarmable ? null : {\n    payload: {\n        node:   ev.node || \"unknown\",\n        reason: !isOnline ? (ev.reason || \"link_dropped\")\n                          : \"sensor_fault\",\n        kind:   !isOnline ? \"sensor_lost\" : \"sensor_degraded\",\n        ts:     Date.now()\n    }\n};\n\nreturn [dbMsg, alarmMsg];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 400,
+        "wires": [
+            [
+                "f3ba892e0a25ec82"
+            ],
+            [
+                "d90e212a6e102287"
+            ]
+        ]
+    },
+    {
+        "id": "f3ba892e0a25ec82",
+        "type": "influxdb out",
+        "z": "96b92fe2e5bc89fa",
+        "influxdb": "f49e7e85efe21404",
+        "name": "system_status",
+        "measurement": "",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "UCM_TFM_SPE",
+        "bucket": "Mediciones_Sensor",
+        "x": 1040,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a09e9434ade35eed",
+        "type": "function",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Watchdog datos",
+        "func": "// Reset del temporizador cada vez que llega una medicion.\n// Si pasan TIMEOUT_MS sin mensajes, emite un evento OFFLINE sintetico\n// hacia la salida 2.\n\nconst NODE_ID = \"esp32_01\";   // ajustar si gestionas varios sensores\nconst TIMEOUT_MS = 6000;               // 3x el periodo de muestreo (2 s)\n\nconst timer = context.get(\"timer\");\nif (timer) clearTimeout(timer);\n\ncontext.set(\"timer\", setTimeout(() => {\n    node.send([null, {\n        payload: {\n            node: NODE_ID,\n            reason: \"no_data_timeout\",\n            ts: Date.now()\n        }\n    }]);\n    node.status({ fill: \"red\", shape: \"ring\", text: \"timeout\" });\n}, TIMEOUT_MS));\n\nnode.status({ fill: \"green\", shape: \"dot\", text: \"ok\" });\n\nreturn [msg, null];   // salida 1: pasa al pipeline existente",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// El código añadido aquí se ejecutará una vez\n// cuando el nodo es iniciado.\n// Arranque: arma el temporizador para detectar un nodo ausente desde el inicio.\ncontext.set(\"timer\", setTimeout(() => {\n    node.send([null, { payload: { node: \"esp32_01\", reason: \"no_data_timeout\", ts: Date.now() } }]);\n    node.status({ fill: \"red\", shape: \"ring\", text: \"sin datos (arranque)\" });\n}, 6000));\n",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 260,
+        "wires": [
+            [
+                "8f53300609bd44b8",
+                "557416c7a45add17",
+                "2462552e2bb179b8"
+            ],
+            [
+                "d90e212a6e102287"
+            ]
+        ]
+    },
+    {
+        "id": "d90e212a6e102287",
+        "type": "function",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Consolidador de alarma",
+        "func": "// Construye el payload unificado de alarma.\n// Entrada esperada en msg.payload:\n//   { node, reason, ts }\n\nconst ev = msg.payload || {};\n\nconst alarm = {\n    severity: ev.kind === \"sensor_degraded\" ? \"warning\" : \"critical\",\n    kind:     ev.kind || \"sensor_lost\",\n    node:     ev.node || \"unknown\",\n    reason:   ev.reason || \"link_dropped\",\n    ts:       ev.ts || Date.now()\n};\n\n// --- Salida 1: publicacion MQTT retenida en v1/spe/alarm ---\nconst mqttMsg = {\n    topic: \"v1/spe/alarm\",\n    payload: alarm,\n    qos: 1,\n    retain: true\n};\n\n// --- Salida 2: persistencia en InfluxDB (mismo measurement que estado) ---\nconst dbMsg = {\n    measurement: \"system_status\",\n    payload: [\n        { state_code: 0 },                        // FIELDS\n        {                                         // TAGS\n            nodo: alarm.node,\n            reason: alarm.reason,\n            source: \"alarm\"\n        }\n    ]\n};\n\nreturn [mqttMsg, dbMsg];",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 420,
+        "wires": [
+            [
+                "75ce8602cbc43b46"
+            ],
+            [
+                "f3ba892e0a25ec82"
+            ]
+        ]
+    },
+    {
+        "id": "75ce8602cbc43b46",
+        "type": "mqtt out",
+        "z": "96b92fe2e5bc89fa",
+        "name": "",
+        "topic": "v1/spe/alarm",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "895e1182015251e8",
+        "x": 1010,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ebd255023b5865da",
+        "type": "mqtt in",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Sensor status → UI",
+        "topic": "v1/spe/sensor/status",
+        "qos": "1",
+        "datatype": "json",
+        "broker": "895e1182015251e8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 640,
+        "wires": [
+            [
+                "479949dc487c15fe"
+            ]
+        ]
+    },
+    {
+        "id": "63d91679f7c22264",
+        "type": "ui-template",
+        "z": "96b92fe2e5bc89fa",
+        "group": "4f19cf733bbdf287",
+        "page": "",
+        "ui": "",
+        "name": "Badge estado sensor",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<style>\n    .badge { display:inline-block; padding:8px 18px; border-radius:18px;\n             font-weight:bold; font-family:sans-serif; color:white;\n             min-width:110px; text-align:center; }\n    .ok    { background:#4caf50; }   /* ONLINE + datos frescos */\n    .warn  { background:#ff9800; }   /* ONLINE + sensor fault */\n    .stale { background:#9e9e9e; }   /* ONLINE afirmado pero sin datos (retenido obsoleto) */\n    .ko    { background:#f44336; }   /* OFFLINE */\n    .unk   { background:#9e9e9e; }\n    .reason-text { margin-left:10px; color:#666; font-size:13px; }\n</style>\n\n<div>\n    <span class=\"badge\" :class=\"{\n        'ok':    msg && msg.payload && msg.payload.status === 'ONLINE' && msg.payload.sensor !== 'fault',\n        'warn':  msg && msg.payload && msg.payload.status === 'ONLINE' && msg.payload.sensor === 'fault',\n        'stale': msg && msg.payload && msg.payload.status === 'STALE',\n        'ko':    msg && msg.payload && msg.payload.status === 'OFFLINE',\n        'unk':   !msg || !msg.payload || ['ONLINE','OFFLINE','STALE'].indexOf(msg.payload.status) === -1\n    }\">\n        {{\n            (msg && msg.payload && msg.payload.status === 'ONLINE' && msg.payload.sensor === 'fault')\n                ? 'ONLINE / SENSOR FAULT'\n                : (msg && msg.payload && msg.payload.status === 'STALE')\n                    ? 'SIN DATOS'\n                    : ((msg && msg.payload && msg.payload.status) || 'UNKNOWN')\n        }}\n    </span>\n    <span class=\"reason-text\" v-if=\"msg && msg.payload && msg.payload.reason\">\n        ({{ msg.payload.reason }})\n    </span>\n</div>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 720,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2462552e2bb179b8",
+        "type": "function",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Segundos desde ultimo dato",
+        "func": "// Guardamos el timestamp del ultimo mensaje recibido.\nflow.set(\"last_data_ts\", Date.now());\nreturn null;   // este nodo no propaga, solo guarda estado",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fee6e4a03ab2531e",
+        "type": "inject",
+        "z": "96b92fe2e5bc89fa",
+        "name": "tick 1s",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 720,
+        "wires": [
+            [
+                "a1756779db247571",
+                "479949dc487c15fe"
+            ]
+        ]
+    },
+    {
+        "id": "a1756779db247571",
+        "type": "function",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Calcula edad del ultimo dato",
+        "func": "const last = flow.get(\"last_data_ts\");\nif (!last) {\n    msg.payload = \"—\";\n    return msg;\n}\n\n// Diferencia en segundos, descontando reloj saltado al futuro.\nlet diffSec = Math.max(0, Math.floor((Date.now() - last) / 1000));\n\nconst days  = Math.floor(diffSec / 86400); diffSec -= days  * 86400;\nconst hours = Math.floor(diffSec / 3600);  diffSec -= hours * 3600;\nconst mins  = Math.floor(diffSec / 60);\nconst secs  = diffSec - mins * 60;\n\nlet text;\nif      (days  > 0) text = `${days} d ${hours} h`;\nelse if (hours > 0) text = `${hours} h ${mins} min`;\nelse if (mins  > 0) text = `${mins} min ${secs} s`;\nelse                text = `${secs} s`;\n\nmsg.payload = text;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 720,
+        "wires": [
+            [
+                "888dc8ff34d58a26"
+            ]
+        ]
+    },
+    {
+        "id": "888dc8ff34d58a26",
+        "type": "ui-text",
+        "z": "96b92fe2e5bc89fa",
+        "group": "4f19cf733bbdf287",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "Edad ultima lectura",
+        "label": "Última lectura hace",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 710,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "f839086f33e554cd",
+        "type": "mqtt in",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Alarmas → UI",
+        "topic": "v1/spe/alarm",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "895e1182015251e8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 560,
+        "wires": [
+            [
+                "d7883c71c730b00e",
+                "a7de0e3dd1bfc8cf"
+            ]
+        ]
+    },
+    {
+        "id": "d7883c71c730b00e",
+        "type": "function",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Historial de eventos",
+        "func": "// Catalogo visual por tipo de evento\nconst REASON_META = {\n    ok:                    { label: \"ONLINE\",             color: \"#4caf50\", icon: \"🟢\" },\n    shutdown:              { label: \"Apagado controlado\", color: \"#ffc107\", icon: \"🟡\" },\n    no_data_timeout:       { label: \"Sin datos\",          color: \"#ff9800\", icon: \"🟠\" },\n    sensor_fault:          { label: \"Sensor averiado\", color: \"#ff9800\", icon: \"🟠\" },\n    unexpected_disconnect: { label: \"Caída del enlace\",   color: \"#f44336\", icon: \"🔴\" },\n    link_dropped:          { label: \"Desconocido\",        color: \"#9e9e9e\", icon: \"⚫\" },\n    o2_low:                { label: \"O₂ bajo (alarma)\", color: \"#f44336\", icon: \"🔴\" },\n    o2_clear:              { label: \"O₂ recuperado\",    color: \"#4caf50\", icon: \"🟢\" },\n\n};\n\nconst N = 20;\nconst DEDUP_WINDOW_MS = 3000;\nconst list = flow.get(\"events\") || [];\nconst p = msg.payload || {};\n\n// Determina el reason normalizado\nlet reason;\nif      (p.status === \"ONLINE\")  reason = \"ok\";\nelse if (p.status === \"OFFLINE\") reason = p.reason || \"link_dropped\";\nelse                             reason = p.reason || \"link_dropped\";\n\nconst meta = REASON_META[reason] || REASON_META.link_dropped;\n\nconst event = {\n    raw_ts: p.ts || Date.now(),\n    ts:     new Date(p.ts || Date.now()).toLocaleString(\"es-ES\"),\n    node:   p.node || \"unknown\",\n    reason: reason,\n    label:  meta.label,\n    color:  meta.color,\n    icon:   meta.icon\n};\n\n// Deduplicacion: contra TODA la lista, no solo el primer elemento.\n// Cubre el caso \"mismo evento llega por dos caminos (status + alarm) y\n// la segunda copia se cuela entre eventos no relacionados\".\nconst isDup = list.some(prev =>\n    prev.node === event.node\n    && prev.reason === event.reason\n    && Math.abs(event.raw_ts - prev.raw_ts) < DEDUP_WINDOW_MS\n);\nif (isDup) return null;\n\nlist.unshift(event);\n\n// Ordenacion cronologica DESCENDENTE (mas reciente primero).\n// Necesario porque dos eventos MQTT que llegan a este nodo en orden\n// inverso (por jitter de red o por venir de topics distintos) podrian\n// quedar colocados al reves si nos limitamos a unshift().\nlist.sort((a, b) => b.raw_ts - a.raw_ts);\n\nwhile (list.length > N) list.pop();\nflow.set(\"events\", list);\n\nmsg.payload = list;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 520,
+        "wires": [
+            [
+                "d13707d668b704c7"
+            ]
+        ]
+    },
+    {
+        "id": "c4c763a08fe248a3",
+        "type": "debug",
+        "z": "96b92fe2e5bc89fa",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "a7de0e3dd1bfc8cf",
+        "type": "debug",
+        "z": "96b92fe2e5bc89fa",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "d13707d668b704c7",
+        "type": "ui-template",
+        "z": "96b92fe2e5bc89fa",
+        "group": "4f19cf733bbdf287",
+        "page": "",
+        "ui": "",
+        "name": "Tabla de eventos",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<style>\n    .ev-table {\n        width: 100%;\n        border-collapse: collapse;\n        font-family: sans-serif;\n        font-size: 13px;\n    }\n    .ev-table th, .ev-table td {\n        padding: 8px 10px;\n        text-align: left;\n        border-bottom: 1px solid #eee;\n        vertical-align: middle;\n    }\n    .ev-table th {\n        background: #f5f5f5;\n        font-weight: 600;\n        color: #555;\n        font-size: 12px;\n        text-transform: uppercase;\n        letter-spacing: 0.5px;\n    }\n    .ev-table tbody tr:hover { background: #fafafa; }\n    .ev-pill {\n        display: inline-block;\n        padding: 4px 12px;\n        border-radius: 12px;\n        color: white;\n        font-weight: 600;\n        font-size: 12px;\n        min-width: 140px;\n        text-align: center;\n        white-space: nowrap;\n    }\n    .ev-empty {\n        padding: 20px;\n        text-align: center;\n        color: #999;\n        font-style: italic;\n    }\n</style>\n\n<div v-if=\"!msg || !msg.payload || msg.payload.length === 0\" class=\"ev-empty\">\n    Sin eventos registrados todavía\n</div>\n\n<table class=\"ev-table\" v-if=\"msg && msg.payload && msg.payload.length > 0\">\n    <thead>\n        <tr>\n            <th>Tiempo</th>\n            <th>Nodo</th>\n            <th>Evento</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr v-for=\"(r, idx) in msg.payload\" :key=\"idx\">\n            <td>{{ r.ts }}</td>\n            <td>{{ r.node }}</td>\n            <td>\n                <span class=\"ev-pill\" :style=\"{ background: r.color }\">\n                    {{ r.icon }} {{ r.label }}\n                </span>\n            </td>\n        </tr>\n    </tbody>\n</table>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 710,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "87ddf00f15b5337c",
+        "type": "mqtt out",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Comando → ESP32 (cmd)",
+        "topic": "v1/spe/sensor/cmd",
+        "qos": "1",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "895e1182015251e8",
+        "x": 1180,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "afb9f432333a747c",
+        "type": "function",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Filtro O3",
+        "func": "const v = msg.payload ? msg.payload.o3 : undefined;\nif (v === undefined || v === null || Number.isNaN(Number(v))) return null;\nreturn { topic: \"O₃\", payload: Number(v) };\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 180,
+        "wires": [
+            [
+                "2a0e4303e24b3b1d"
+            ]
+        ]
+    },
+    {
+        "id": "b8ebf286be138d3f",
+        "type": "function",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Filtro CO",
+        "func": "const v = msg.payload ? msg.payload.co_level : undefined;\nif (v === undefined || v === null || Number.isNaN(Number(v))) return null;\nreturn { topic: \"CO\", payload: Number(v) };\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 240,
+        "wires": [
+            [
+                "16bbeed4e0dd88eb"
+            ]
+        ]
+    },
+    {
+        "id": "b3413b8ab745c472",
+        "type": "function",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Filtro O2",
+        "func": "const v = msg.payload ? msg.payload.o2 : undefined;\nif (v === undefined || v === null || Number.isNaN(Number(v))) return null;\nreturn { topic: \"O₂\", payload: Number(v) };",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 120,
+        "wires": [
+            [
+                "f3e0243d88521797",
+                "22d7ef26e5cfb045"
+            ]
+        ]
+    },
+    {
+        "id": "f3e0243d88521797",
+        "type": "ui-chart",
+        "z": "96b92fe2e5bc89fa",
+        "group": "47f37dd80357c9fd",
+        "name": "O2 (%vol)",
+        "label": "O2 (%vol)",
+        "order": 3,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": "30",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "6",
+        "height": "8",
+        "className": "",
+        "interpolation": "linear",
+        "x": 1120,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2a0e4303e24b3b1d",
+        "type": "ui-chart",
+        "z": "96b92fe2e5bc89fa",
+        "group": "47f37dd80357c9fd",
+        "name": "O3 (ppb)",
+        "label": "O3 (ppb)",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": "30",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "6",
+        "height": "8",
+        "className": "",
+        "interpolation": "linear",
+        "x": 1120,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb7146cec2042ca7",
+        "type": "ui-template",
+        "z": "96b92fe2e5bc89fa",
+        "group": "4f19cf733bbdf287",
+        "page": "",
+        "ui": "",
+        "name": "Botón reinicio",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<div>\n  <button class=\"btn-reboot\" @click=\"open = true\">⏻ Reiniciar nodo</button>\n\n  <div v-if=\"open\" class=\"modal-overlay\" @click.self=\"open = false\">\n    <div class=\"modal-box\">\n      <p class=\"modal-title\">¿Reiniciar el nodo ESP32?</p>\n      <p class=\"modal-text\">\n        El nodo publicará <b>OFFLINE / shutdown</b> y se reiniciará.\n        La serie de datos tendrá una laguna durante el arranque.\n      </p>\n      <div class=\"modal-actions\">\n        <button class=\"btn-cancel\"  @click=\"open = false\">Cancelar</button>\n        <button class=\"btn-confirm\" @click=\"doReboot\">Sí, reiniciar</button>\n      </div>\n    </div>\n  </div>\n</div>\n\n<script>\nexport default {\n  data() {\n    return { open: false };\n  },\n  methods: {\n    doReboot() {\n      this.send({ payload: \"reboot\" });   // sale por la salida del ui-template\n      this.open = false;\n    }\n  }\n}\n</script>\n\n<style>\n  .btn-reboot {\n    background:#f44336; color:#fff; border:none;\n    padding:10px 18px; border-radius:8px; font-weight:600;\n    cursor:pointer; font-family:sans-serif;\n  }\n  .btn-reboot:hover { background:#d32f2f; }\n\n  .modal-overlay {\n    position:fixed; inset:0; background:rgba(0,0,0,.45);\n    display:flex; align-items:center; justify-content:center; z-index:9999;\n  }\n  .modal-box {\n    background:#fff; border-radius:10px; padding:22px 24px;\n    max-width:360px; box-shadow:0 8px 30px rgba(0,0,0,.25);\n    font-family:sans-serif;\n  }\n  .modal-title { font-size:17px; font-weight:700; margin:0 0 8px; color:#222; }\n  .modal-text  { font-size:13px; color:#555; margin:0 0 18px; line-height:1.4; }\n  .modal-actions { display:flex; justify-content:flex-end; gap:10px; }\n  .btn-cancel {\n    background:#eee; color:#333; border:none; padding:8px 16px;\n    border-radius:6px; cursor:pointer; font-weight:600;\n  }\n  .btn-confirm {\n    background:#f44336; color:#fff; border:none; padding:8px 16px;\n    border-radius:6px; cursor:pointer; font-weight:600;\n  }\n  .btn-confirm:hover { background:#d32f2f; }\n</style>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 940,
+        "y": 680,
+        "wires": [
+            [
+                "87ddf00f15b5337c"
+            ]
+        ]
+    },
+    {
+        "id": "479949dc487c15fe",
+        "type": "function",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Estado efectivo",
+        "func": "// Combina el ultimo estado conocido con la frescura de los datos, para no\n// mostrar ONLINE en base a un retenido obsoleto tras reiniciar el gateway.\nconst DATA_TIMEOUT_MS = 6000;   // 3x periodo de muestreo (2 s)\n\n// Si llega un status real (no el tick), lo guardamos como ultimo conocido.\nconst p = msg.payload;\nif (p && (p.status === \"ONLINE\" || p.status === \"OFFLINE\")) {\n    flow.set(\"last_status\", p);\n}\n\nconst st       = flow.get(\"last_status\");\nconst lastData = flow.get(\"last_data_ts\");\nconst fresh    = lastData && (Date.now() - lastData) < DATA_TIMEOUT_MS;\n\nlet eff;\nif (!st) {\n    eff = { status: \"UNKNOWN\" };\n} else if (st.status === \"OFFLINE\") {\n    eff = { status: \"OFFLINE\", reason: st.reason };\n} else {\n    // st.status === \"ONLINE\": exigir confirmacion por datos frescos\n    eff = fresh\n        ? { status: \"ONLINE\", sensor: st.sensor, reason: st.reason }\n        : { status: \"STALE\", reason: \"sin_datos\" };\n}\n\nmsg.payload = eff;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 640,
+        "wires": [
+            [
+                "63d91679f7c22264"
+            ]
+        ]
+    },
+    {
+        "id": "22d7ef26e5cfb045",
+        "type": "function",
+        "z": "96b92fe2e5bc89fa",
+        "name": "Umbral O2",
+        "func": "// Alarma de DEFICIENCIA de oxigeno: alarma por umbral INFERIOR.\n// Entrada: msg.payload = valor de O2 (numero), proveniente de \"Filtro O₂\".\nconst NODE_ID  = \"esp32_01\";\nconst O2_MIN   = 19.5;     // %vol: por debajo => alarma\nconst O2_CLEAR = 20.0;     // %vol: histeresis, debe recuperar por encima para limpiar\nconst val = Number(msg.payload);\nif (Number.isNaN(val)) return null;\nconst wasActive = context.get(\"o2_alarm\") || false;\nlet alarm = null;\nif (!wasActive && val < O2_MIN) {\n    context.set(\"o2_alarm\", true);\n    alarm = { severity: \"critical\", kind: \"gas_threshold\", node: NODE_ID,\n              reason: \"o2_low\", value: val, min: O2_MIN, unit: \"%vol\", ts: Date.now() };\n    node.status({ fill: \"red\", shape: \"dot\", text: `O2 ${val}% < ${O2_MIN}` });\n} else if (wasActive && val >= O2_CLEAR) {\n    context.set(\"o2_alarm\", false);\n    alarm = { severity: \"info\", kind: \"gas_threshold\", node: NODE_ID,\n              reason: \"o2_clear\", value: val, min: O2_MIN, unit: \"%vol\", ts: Date.now() };\n    node.status({ fill: \"green\", shape: \"ring\", text: `O2 ${val}% OK` });\n}\nif (!alarm) return null;\nmsg.topic   = \"v1/spe/alarm\";\nmsg.payload = alarm;\nmsg.qos     = 1;\nmsg.retain  = false;   // no machacar el retenido de la alarma de presencia\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 80,
+        "wires": [
+            [
+                "215cf90e0416231e",
+                "ec9d99cbfc40bbec"
+            ]
+        ]
+    },
+    {
+        "id": "ec9d99cbfc40bbec",
+        "type": "mqtt out",
+        "z": "96b92fe2e5bc89fa",
+        "name": "mqtt alarm",
+        "topic": "v1/spe/alarm",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "895e1182015251e8",
+        "x": 1310,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "215cf90e0416231e",
+        "type": "ui-template",
+        "z": "96b92fe2e5bc89fa",
+        "group": "fd45f722b4b1b15d",
+        "page": "",
+        "ui": "",
+        "name": "Banner O2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<div v-if=\"active\" class=\"o2-banner\">\n    <span class=\"o2-icon\">⚠️</span>\n    <span class=\"o2-text\">\n    <b>ALARMA · O₂ BAJO</b> — {{ value }} %vol\n    (umbral {{ threshold }} %vol). Atmósfera deficiente en oxígeno.\n  </span>\n</div>\n<script>\n    export default {\n  data() {\n    return { active: false, value: null, threshold: 19.5 };\n  },\n  watch: {\n    msg: {\n      immediate: true,\n      handler(m) {\n        if (!m || !m.payload) return;\n        const r = m.payload.reason;\n        if (r === 'o2_low') {\n          this.active = true;\n          this.value = m.payload.value;\n          if (m.payload.min != null) this.threshold = m.payload.min;\n        } else if (r === 'o2_clear') {\n          this.active = false;\n          this.value = m.payload.value;\n        }\n      }\n    }\n  }\n}\n</script>\n<style>\n    .o2-banner {\n        display: flex;\n        align-items: center;\n        gap: 10px;\n        background: #f44336;\n        color: #fff;\n        padding: 12px 16px;\n        border-radius: 8px;\n        font-family: sans-serif;\n        font-weight: 600;\n        box-shadow: 0 2px 8px rgba(0, 0, 0, .2);\n        animation: o2pulse 1.2s ease-in-out infinite;\n    }\n\n    @keyframes o2pulse {\n\n        0%,\n        100% {\n            opacity: 1;\n        }\n\n        50% {\n            opacity: .6;\n        }\n    }\n\n    .o2-icon {\n        font-size: 22px;\n    }\n\n    .o2-text {\n        font-size: 14px;\n        line-height: 1.3;\n    }\n</style>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1310,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a470074dbe8b49fb",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-influxdb": "0.7.0",
+            "@flowfuse/node-red-dashboard": "1.30.2"
+        }
+    }
+]
