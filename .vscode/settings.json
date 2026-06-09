@@ -1,0 +1,11 @@
+{
+  "idf.customExtraVars": {
+    "OPENOCD_SCRIPTS": "C:\\Users\\Yikang\\.espressif\\tools\\openocd-esp32\\v0.12.0-esp32-20240318/openocd-esp32/share/openocd/scripts",
+    "IDF_CCACHE_ENABLE": "1",
+    "ESP_ROM_ELF_DIR": "C:\\Users\\Yikang\\.espressif\\tools\\esp-rom-elfs\\20240305/"
+  },
+  "idf.portWin": "COM5",
+  "idf.flashType": "UART",
+  "idf.flashBaudRate": "115200",
+  "idf.currentSetup": "C:\\esp\\v6.0.1\\esp-idf"
+}

@@ -1,0 +1,119 @@
+menu "Nodo sensor SPE - Sensores I2C"
+
+    comment "Bus I2C compartido (Qwiic)"
+
+    config I2C_SENSOR_PORT
+        int "Puerto I2C maestro"
+        default 0
+        range 0 1
+        help
+            Numero de puerto del controlador I2C maestro del ESP32 (0 o 1).
+            Todos los sensores I2C comparten este unico bus.
+
+    config I2C_SENSOR_SDA_GPIO
+        int "GPIO SDA (Qwiic)"
+        default 21
+        help
+            GPIO de la linea SDA. En el SparkFun MicroMod ESP32 el bus I2C
+            primario (conector Qwiic de la placa Main) es SDA=GPIO21.
+
+    config I2C_SENSOR_SCL_GPIO
+        int "GPIO SCL (Qwiic)"
+        default 22
+        help
+            GPIO de la linea SCL. En el SparkFun MicroMod ESP32 el bus I2C
+            primario (conector Qwiic de la placa Main) es SCL=GPIO22.
+
+    config I2C_SENSOR_FREQ_HZ
+        int "Frecuencia de reloj I2C (Hz)"
+        default 100000
+        range 10000 400000
+        help
+            Frecuencia del reloj SCL del bus compartido. Qwiic admite hasta
+            400 kHz; 100 kHz es un valor conservador y robusto.
+
+    comment "Sensores del bus (habilitar los presentes; direcciones distintas)"
+
+    config I2C_SENSOR_SIMULATED_ENABLE
+        bool "Sensor simulado (sin hardware)"
+        default y
+        help
+            Driver sin hardware que genera lecturas sinteticas. No usa el bus
+            I2C, por lo que el firmware arranca y publica aunque no haya sensores
+            conectados. Publica en el campo "CO_LEVEL". Util para validar la app;
+            desactivar en el banco con sensores reales.
+
+    config I2C_SENSOR_OXYGEN_ENABLE
+        bool "DFRobot Gravity I2C Oxygen Sensor (SEN0322, O2)"
+        default n
+        help
+            Sensor electroquimico de oxigeno (0-25 %vol). Publica en el campo
+            "O2" en %vol.
+
+    config I2C_SENSOR_OXYGEN_ADDR
+        hex "Direccion I2C del SEN0322 (O2)"
+        depends on I2C_SENSOR_OXYGEN_ENABLE
+        default 0x70
+        range 0x70 0x73
+        help
+            Direccion I2C del DFRobot SEN0322, seleccionable por DIP (A0/A1)
+            entre 0x70 y 0x73. Debe ser distinta de la de los demas sensores
+            del bus.
+
+    config I2C_SENSOR_OXYGEN_SAMPLES
+        int "Muestras a promediar (O2)"
+        depends on I2C_SENSOR_OXYGEN_ENABLE
+        default 3
+        range 1 32
+        help
+            Numero de lecturas consecutivas promediadas por medida para atenuar
+            el ruido.
+
+    config I2C_SENSOR_OZONE_ENABLE
+        bool "DFRobot Gravity I2C Ozone Sensor (SEN0321, O3)"
+        default n
+        help
+            Sensor electroquimico de ozono (0-10 ppm, resolucion 0,01 ppm segun
+            datasheet). Publica en el campo "O3" en ppb.
+
+    config I2C_SENSOR_OZONE_ADDR
+        hex "Direccion I2C del SEN0321 (O3)"
+        depends on I2C_SENSOR_OZONE_ENABLE
+        default 0x73
+        range 0x70 0x73
+        help
+            Direccion I2C del DFRobot SEN0321, seleccionable por el DIP A1/A0
+            (2 bits -> 0x70..0x73). En este modulo las lineas estan en pull-up:
+            un interruptor en OFF = bit a 1, por lo que con AMBOS interruptores
+            en OFF la direccion es 0x73 (verificado, valor por defecto); pasar un
+            bit a ON la baja hacia 0x70. Debe ser distinta de la de los demas
+            sensores del bus.
+
+    config I2C_SENSOR_OZONE_SAMPLES
+        int "Muestras a promediar (O3)"
+        depends on I2C_SENSOR_OZONE_ENABLE
+        default 4
+        range 1 100
+        help
+            Numero de lecturas consecutivas promediadas por medida para atenuar
+            el ruido.
+
+    config I2C_SENSOR_MULTIGAS_ENABLE
+        bool "DFRobot Gravity Multi-Gas Sensor (PLANTILLA, sin portar)"
+        default n
+        help
+            Driver de ejemplo (scaffold) para anadir un sensor multigas al bus.
+            El protocolo no esta portado: si se habilita, el sensor queda
+            inactivo (read devuelve ESP_ERR_NOT_SUPPORTED). Sirve de plantilla
+            para integrar un sensor nuevo. Ver drivers/multigas.c.
+
+    config I2C_SENSOR_MULTIGAS_ADDR
+        hex "Direccion I2C del MultiGasSensor"
+        depends on I2C_SENSOR_MULTIGAS_ENABLE
+        default 0x74
+        range 0x00 0x7F
+        help
+            Direccion I2C del modulo MultiGas. Debe ser distinta de la de los
+            demas sensores del bus.
+
+endmenu

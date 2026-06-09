@@ -1,0 +1,6 @@
+dependencies:
+  # Red SOLO por SPE (ADIN1110): sin Wi-Fi. Se retira protocol_examples_common
+  # (helper example_connect, Wi-Fi) y esp_wifi_remote (Fase 4, paso 13).
+  espressif/mqtt: "^1.0.0"
+  idf:
+    version: ">=5.3"

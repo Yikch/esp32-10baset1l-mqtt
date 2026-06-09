@@ -1,0 +1,100 @@
+menu "Nodo sensor SPE - Configuracion"
+
+    comment "Interfaz de red - IP estatica (F-02)"
+
+    config NODE_STATIC_IP
+        string "Direccion IP estatica del nodo"
+        default "192.168.10.1"
+        help
+            Direccion IP del nodo en el enlace punto a punto 10BASE-T1L.
+            No se usa DHCP.
+
+    config NODE_NETMASK
+        string "Mascara de subred"
+        default "255.255.255.0"
+
+    config NODE_GATEWAY
+        string "Puerta de enlace (gateway)"
+        default "192.168.10.2"
+        help
+            IP del gateway remoto al otro extremo del enlace SPE.
+
+    comment "Identidad del nodo"
+
+    config NODE_ID
+        string "Identificador del nodo"
+        default "esp32_01"
+        help
+            Identificador unico del nodo. Se incrusta en los payloads de
+            estado publicados en el topic de estado: {"node":"<id>",...}
+            (requisitos F-10, F-11 y F-12).
+
+    comment "Cliente MQTT (F-05)"
+
+    config NODE_MQTT_BROKER_URI
+        string "URI del broker MQTT"
+        default "mqtt://192.168.10.2:1883"
+        help
+            URI del broker MQTT. Esquema mqtt:// (texto plano, puerto 1883).
+
+    config NODE_MQTT_USERNAME
+        string "Usuario MQTT (token de dispositivo)"
+        default ""
+        help
+            Nombre de usuario MQTT. Dejar vacio si el broker no requiere
+            autenticacion. Para publicar directamente en ThingsBoard, poner
+            aqui el access token del dispositivo (la contrasena y el client-id
+            se dejan vacios).
+
+    config NODE_MQTT_TOPIC
+        string "Topic de publicacion de datos"
+        default "v1/spe/sensor/data"
+        help
+            Topic de publicacion de mediciones. Contrato con el gateway:
+            "v1/spe/sensor/data". Para publicar directamente en ThingsBoard
+            usar en su lugar "v1/devices/me/telemetry".
+
+    config NODE_MQTT_STATUS_TOPIC
+        string "Topic de estado (presencia / LWT)"
+        default "v1/spe/sensor/status"
+        help
+            Topic donde se publican el estado ONLINE/OFFLINE del nodo y el
+            Last Will Testament (retain=true). Contrato con el gateway:
+            "v1/spe/sensor/status" (requisitos F-10, F-11 y F-12).
+
+    config NODE_MQTT_CMD_TOPIC
+        string "Topic de comandos administrativos"
+        default "v1/spe/sensor/cmd"
+        help
+            Topic al que se suscribe el nodo para recibir comandos
+            administrativos. Un payload que contenga "reboot" o "shutdown"
+            dispara un cierre ordenado (OFFLINE/shutdown) seguido de reinicio
+            (requisito F-12). Dejar vacio para desactivar la suscripcion.
+
+    config NODE_MQTT_QOS
+        int "QoS de publicacion"
+        default 1
+        range 0 2
+        help
+            Calidad de servicio MQTT. El contrato con el gateway fija QoS 1.
+
+    config NODE_MQTT_KEEPALIVE_S
+        int "Keepalive MQTT (s)"
+        default 20
+        range 5 20
+        help
+            Periodo de keepalive del cliente MQTT, en segundos. El broker debe
+            detectar la caida del nodo en menos de 30 s (~1,5 x keepalive), por
+            lo que debe ser <= 20 s (requisito F-13).
+
+    comment "Muestreo del sensor (F-06)"
+
+    config NODE_SAMPLE_PERIOD_MS
+        int "Periodo de muestreo (ms)"
+        default 2000
+        range 100 30000
+        help
+            Periodo entre lecturas del sensor de CO. Por defecto 2 s,
+            maximo 30 s.
+
+endmenu

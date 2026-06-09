@@ -1,0 +1,61 @@
+# ============================================================
+#  .gitignore  ·  TFM_SPE
+# ============================================================
+
+# --- Directorio de copias de seguridad ---
+backup
+
+# === ESP-IDF / ESP32 (esp32_node) ==========================
+# Artefactos de compilacion: se regeneran con `idf.py build`
+build/
+# Componentes descargados por el gestor de componentes
+managed_components/
+dependencies.lock
+# Copia de seguridad de la configuracion (se conserva sdkconfig)
+sdkconfig.old
+# Binarios generados
+*.elf
+*.bin
+*.map
+*.o
+
+# === Python (gateway_node / sensor_node) ===================
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# === LaTeX (TFM_LaTex) · artefactos de compilacion =========
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.lol
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.idx
+*.ilg
+*.ind
+*.nav
+*.snm
+*.vrb
+*.xdv
+
+# === Datos generados / bases de datos locales ==============
+*.db
+*.sqlite
+
+# === Sistema operativo y editores ==========================
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.tmp
+*~

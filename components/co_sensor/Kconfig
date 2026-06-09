@@ -1,0 +1,40 @@
+# Driver de sensores de gas ANALOGICOS (ADC).
+#
+# PENDIENTE DE COMPROBACION Y PRUEBA: no se probaran sensores ADC sobre la placa
+# SparkFun MicroMod ESP32 por limitaciones de hardware (el banco usa el sensor
+# I2C por Qwiic, componente i2c_sensor). Estas opciones se conservan para un
+# futuro nodo con sensor analogico y requieren calibracion con gas patron.
+menu "Nodo sensor SPE - Sensor de gas ADC (co_sensor, pendiente)"
+
+    config CO_SENSOR_ADC_CHANNEL
+        int "Canal ADC1 de la salida del sensor"
+        default 6
+        range 0 7
+        help
+            Canal de la unidad ADC1 conectado a la salida analogica del sensor.
+            El ADC1 del ESP32 tiene 8 canales (0-7): 0=GPIO36, 3=GPIO39,
+            4=GPIO32, 5=GPIO33, 6=GPIO34, 7=GPIO35.
+
+    config CO_SENSOR_ADC_SAMPLES
+        int "Muestras ADC a promediar por lectura"
+        default 16
+        range 1 256
+        help
+            Numero de conversiones ADC promediadas en cada lectura para
+            atenuar el ruido.
+
+    config CO_SENSOR_CLEAN_AIR_MV
+        int "Tension en aire limpio (mV)"
+        default 400
+        help
+            Tension de salida del sensor en aire limpio (~0 ppm de CO).
+            Punto de calibracion: requiere ajuste con el sensor real.
+
+    config CO_SENSOR_MV_PER_PPM
+        int "Sensibilidad (micro-voltios por ppm)"
+        default 1500
+        help
+            Pendiente de la recta tension-concentracion, en uV/ppm.
+            Conversion provisional lineal: requiere calibracion con gas patron.
+
+endmenu

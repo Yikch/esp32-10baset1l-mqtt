@@ -1,0 +1,9 @@
+# Flash de 16 MB: el modulo SparkFun MicroMod ESP32 monta una W25Q128 (16 MB).
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
+
+#
+# El cliente MQTT usa texto plano (mqtt://, puerto 1883), por lo que NO se
+# habilita el certificate bundle de mbedTLS (ahorra flash). Si se migra a
+# MQTT sobre TLS (mqtts://), volver a anadir:
+#   CONFIG_MBEDTLS_CERTIFICATE_BUNDLE=y
+#   CONFIG_MBEDTLS_CERTIFICATE_BUNDLE_DEFAULT_FULL=y

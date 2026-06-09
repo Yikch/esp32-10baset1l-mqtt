@@ -1,0 +1,63 @@
+menu "Interfaz Ethernet SPE - ADIN1110 (10BASE-T1L)"
+
+    comment "Bus SPI (SparkFun MicroMod ESP32: VSPI del conector M.2)"
+
+    config ETH_ADIN1110_SPI_HOST
+        int "Host SPI (1 = SPI2/HSPI, 2 = SPI3/VSPI)"
+        default 2
+        range 1 2
+        help
+            Controlador SPI maestro. Los pines por defecto (18/23/19/5) son los
+            nativos IOMUX de VSPI (SPI3_HOST = 2).
+
+    config ETH_ADIN1110_SCLK_GPIO
+        int "GPIO SCLK"
+        default 18
+
+    config ETH_ADIN1110_MOSI_GPIO
+        int "GPIO MOSI (COPI / SDO)"
+        default 23
+
+    config ETH_ADIN1110_MISO_GPIO
+        int "GPIO MISO (CIPO / SDI)"
+        default 19
+
+    config ETH_ADIN1110_CS_GPIO
+        int "GPIO CS (chip select, SPI_CS del M.2)"
+        default 5
+
+    config ETH_ADIN1110_SPI_HZ
+        int "Frecuencia de reloj SPI (Hz)"
+        default 15000000
+        range 1000000 25000000
+        help
+            Reloj SPI para el modo OPEN Alliance TC6. Conservador al inicio; se
+            puede subir tras validar el enlace con iperf.
+
+    comment "Lineas de control"
+
+    config ETH_ADIN1110_INT_GPIO
+        int "GPIO INT (recepcion por interrupcion; -1 = solo sondeo)"
+        default 12
+        range -1 39
+        help
+            Pin de interrupcion del ADIN1110 (en la function board SparkFun es
+            F0/INT = GPIO12). La tarea de servicio recibe tramas cuando se
+            activa. Con -1, se recurre solo al sondeo periodico (mayor latencia).
+
+    config ETH_ADIN1110_RESET_GPIO
+        int "GPIO RESET (-1 = reset por software via SPI)"
+        default -1
+        range -1 39
+        help
+            Pin de RESET hardware. Con -1, el driver hace reset por software.
+
+    config ETH_ADIN1110_POLL_MS
+        int "Periodo de servicio/sondeo del enlace (ms)"
+        default 1000
+        range 50 5000
+        help
+            Cada cuanto, como maximo, la tarea de servicio revisa el enlace y
+            drena la FIFO de recepcion aunque no llegue interrupcion.
+
+endmenu
